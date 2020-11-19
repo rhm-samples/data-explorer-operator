@@ -1,1 +1,1 @@
-# data-explroer-operator
+# data-explorer-operator
