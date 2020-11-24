@@ -1,0 +1,282 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: |-
+      [
+        {
+          "apiVersion": "data-explorer.com/v1alpha1",
+          "kind": "DashboardWithJupyterHub",
+          "metadata": {
+            "name": "dashboardwithjupyterhub-sample"
+          },
+          "spec": {}
+        }
+      ]
+    capabilities: Basic Install
+    categories: Developer Tools
+    certified: "false"    
+    createdAt: "2020-11-17T12:00:00Z"
+    repository: https://github.ibm.com/IBM-Analytics-Services/instrumentation-hybrid
+    support: IBM Edge
+    operators.operatorframework.io/builder: operator-sdk-v1.1.0
+    operators.operatorframework.io/project_layout: ansible.sdk.operatorframework.io/v1
+  name: data-explorer-operator.v0.0.1
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: Data Explorer Dashbaord with JupyterHub
+      displayName: DashboardWithJupyterHub
+      kind: DashboardWithJupyterHub
+      name: dashboardwithjupyterhubs.data-explorer.com
+      resources:
+      - kind: Route
+        name: ''
+        version: route.openshift.io/v1
+      statusDescriptors: 
+        - description: Dashboard URL
+          displayName: Data explorer Dashboard URL
+          path: url
+          x-descriptors:
+            - 'urn:alm:descriptor:org.w3:link'
+      version: v1alpha1
+  description: Data Explorer provides ready to use pre-configured data science environment for experimentation.Bringing the promise of notebooks to Kubernetes and OpenShift as an Operator pattern.  Deploy in the cloud or your data center or local laptop with ready to use data and notebooks without burdening yourself with installation details. You can work as team or use your own project namespace.
+  displayName: Data Explorer Operator
+  icon:
+  - base64data: "iVBORw0KGgoAAAANSUhEUgAAAHUAAACPCAYAAADEDZTDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDAyIDc5LjE2NDQ2MCwgMjAyMC8wNS8xMi0xNjowNDoxNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjIgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEMTUxQkJCMjRDNzExRUI5QzdFRTQwNTJEOTcxNTUyIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEMTUxQkJDMjRDNzExRUI5QzdFRTQwNTJEOTcxNTUyIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MEQxNTFCQjkyNEM3MTFFQjlDN0VFNDA1MkQ5NzE1NTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MEQxNTFCQkEyNEM3MTFFQjlDN0VFNDA1MkQ5NzE1NTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5NTlJOAAAIQElEQVR42uyd3XEq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"
+    mediatype: "image/png"
+  install:
+    spec:
+      clusterPermissions:
+      - rules:
+        - apiGroups:
+          - ""
+          resources:
+          - secrets
+          - pods
+          - pods/exec
+          - pods/log
+          - services
+          - services/finalizers
+          - endpoints
+          - persistentvolumeclaims
+          - events
+          - configmaps
+          - deployments
+          - routes
+          - serviceaccounts
+          - persistentvolumes
+          - nodes
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - apps
+          resources:
+          - deployments
+          - daemonsets
+          - replicasets
+          - statefulsets
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - monitoring.coreos.com
+          resources:
+          - servicemonitors
+          verbs:
+          - get
+          - create
+        - apiGroups:
+          - security.openshift.io
+          resourceNames:
+          - anyuid
+          - privileged
+          resources:
+          - securitycontextconstraints
+          verbs:
+          - use
+        - apiGroups:
+          - apiextensions.k8s.io
+          resources:
+          - customresourcedefinitions
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - data-explorer.com
+          resources:
+          - dashboardwithjupyterhubs
+          - dashboardwithjupyterhubs/status
+          - dashboardwithjupyterhubs/finalizers
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - route.openshift.io
+          resources:
+          - routes
+          verbs:
+          - '*'
+        - apiGroups:
+          - operators.coreos.com
+          resources:
+          - operatorgroups
+          - subscriptions
+          - clusterserviceversions
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - authentication.k8s.io
+          resources:
+          - tokenreviews
+          verbs:
+          - create
+        - apiGroups:
+          - authorization.k8s.io
+          resources:
+          - subjectaccessreviews
+          verbs:
+          - create
+        - apiGroups:
+          - networking.k8s.io
+          resources:
+          - ingresses
+          verbs:
+          - '*'
+        - apiGroups:
+          - ""
+          resources:
+          - configmaps
+          verbs:
+          - get
+          - list
+          - watch
+          - create
+          - update
+          - patch
+          - delete
+        - apiGroups:
+          - ""
+          resources:
+          - events
+          verbs:
+          - create
+          - patch
+        serviceAccountName: data-explorer-operator
+      deployments:
+      - name: data-explorer-operator-data-explorer-operator
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              name: data-explorer-operator
+          strategy: {}
+          template:
+            metadata:
+              labels:
+                name: data-explorer-operator
+            spec:
+              containers:
+              - args:
+                - --secure-listen-address=0.0.0.0:8443
+                - --upstream=http://127.0.0.1:8080/
+                - --logtostderr=true
+                - --v=10
+                image: registry.redhat.io/openshift4/ose-kube-rbac-proxy:v4.6.0
+                name: kube-rbac-proxy
+                ports:
+                - containerPort: 8443
+                  name: https
+                resources: {}
+              - args:
+                - --metrics-addr=127.0.0.1:8080
+                - --enable-leader-election
+                - --leader-election-id=data-explorer-operator
+                env:
+                - name: WATCH_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.annotations['olm.targetNamespaces']
+                - name: POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: OPERATOR_NAME
+                  value: data-explorer-operator
+                - name: ANSIBLE_GATHERING
+                  value: explicit
+                - name: RELATED_IMAGE_JUPYTERHUB_DASHBOARD
+                  value: image-registry.openshift-image-registry.svc:5000/data-explorer-operator/jupyterhub-dataexplorer-dashboard:24-11-1
+                image: image-registry.openshift-image-registry.svc:5000/data-explorer-operator/data-explorer-operator:11-17-1
+                imagePullPolicy: Always
+                name: manager
+                resources: {}
+                volumeMounts:
+                - mountPath: /tmp/ansible-operator/runner
+                  name: runner
+              initContainers:
+              - command:
+                - /bin/sh
+                - -c
+                - "echo \"apiVersion: data-explorer.com/v1alpha1\nkind: DashboardWithJupyterHub\nmetadata:\n  name: dashboard-with-jupyterhub\nspec:\" | oc apply -f -                            \n"
+                image: registry.redhat.io/openshift4/ose-cli:v4.3
+                imagePullPolicy: Always
+                name: dashboardinstaller
+                resources: {}
+              serviceAccountName: data-explorer-operator
+              volumes:
+              - emptyDir: {}
+                name: runner       
+        serviceAccountName: data-explorer-operator
+    strategy: deployment
+  installModes:
+  - supported: true
+    type: OwnNamespace
+  - supported: true
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: false
+    type: AllNamespaces
+  keywords:
+  - Developer tools
+  - Data Explorer Operator
+  links:
+  - name: Data Explorer Operator
+    url: https://data-explorer-operator.domain
+  maintainers:
+  - email: edge@us.ibm.com
+    name: IBM-Edge
+  maturity: alpha
+  provider:
+    name: IBM-Edge
+  version: 0.0.1
