@@ -27,7 +27,7 @@ spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
     owned:
-    - description: Data Explorer Dashbaord with JupyterHub
+    - description: Data Explorer Dashboard with JupyterHub
       displayName: DashboardWithJupyterHub
       kind: DashboardWithJupyterHub
       name: dashboardwithjupyterhubs.data-explorer.com
