@@ -235,8 +235,8 @@ spec:
                 - name: ANSIBLE_GATHERING
                   value: explicit
                 - name: RELATED_IMAGE_JUPYTERHUB_DASHBOARD
-                  value: image-registry.openshift-image-registry.svc:5000/data-explorer-operator/jupyterhub-dataexplorer-dashboard:24-11-1
-                image: image-registry.openshift-image-registry.svc:5000/data-explorer-operator/data-explorer-operator:11-17-1
+                  value: quay.io/dataexplorer/jupyterhub-dataexplorer-dashboard:24-11-1
+                image: quay.io/dataexplorer/data-explorer-operator:11-17-1
                 imagePullPolicy: Always
                 name: manager
                 resources: {}
