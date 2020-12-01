@@ -10,6 +10,15 @@ spec:
     listKind: DashboardWithJupyterHubList
     plural: dashboardwithjupyterhubs
     singular: dashboardwithjupyterhub
+  additionalPrinterColumns:
+    - name: Status
+      type: string
+      description: Data Explorer Deployment Status
+      JSONPath: .status.phase
+    - name: URL
+      type: string
+      description: Data Explorer Dashboard URL
+      JSONPath: .status.url
   scope: Namespaced
   subresources:
     status: {}
