@@ -236,7 +236,7 @@ spec:
                 - name: ANSIBLE_GATHERING
                   value: explicit
                 - name: RELATED_IMAGE_JUPYTERHUB_DASHBOARD
-                  value: quay.io/dataexplorer/jupyterhub-dataexplorer-dashboard:25-11-1
+                  value: quay.io/dataexplorer/jupyterhub-dataexplorer-dashboard:12-1-1
                 image: quay.io/dataexplorer/data-explorer-operator:11-17-1
                 imagePullPolicy: Always
                 name: manager
