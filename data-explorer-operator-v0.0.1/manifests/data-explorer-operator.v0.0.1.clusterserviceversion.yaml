@@ -15,9 +15,9 @@ metadata:
       ]
     capabilities: Basic Install
     categories: Developer Tools
-    certified: "false"    
-    createdAt: "2020-11-17T12:00:00Z"
-    repository: https://github.ibm.com/IBM-Analytics-Services/instrumentation-hybrid
+    certified: "true"    
+    createdAt: "2020-12-14T12:00:00Z"
+    repository: https://github.com/rhm-samples/data-explorer-operator
     support: IBM Edge
     operators.operatorframework.io/builder: operator-sdk-v1.1.0
     operators.operatorframework.io/project_layout: ansible.sdk.operatorframework.io/v1
@@ -236,8 +236,8 @@ spec:
                 - name: ANSIBLE_GATHERING
                   value: explicit
                 - name: RELATED_IMAGE_JUPYTERHUB_DASHBOARD
-                  value: quay.io/dataexplorer/jupyterhub-dataexplorer-dashboard:12-1-2
-                image: quay.io/dataexplorer/data-explorer-operator:11-17-1
+                  value: registry.connect.redhat.com/ibm-edge/data-explorer-dashboard:v1.0.1
+                image: registry.connect.redhat.com/ibm-edge/data-explorer-operator:v1.0.0
                 imagePullPolicy: Always
                 name: manager
                 resources: {}
